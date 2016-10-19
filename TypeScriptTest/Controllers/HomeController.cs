@@ -18,9 +18,9 @@ namespace TypeScriptTest.Controllers
         {
             List<User> userCollection = new List<User>()
             {
-                new User() { Id=1,LastName="Bastiuchenko", FirstName="Anton", Age=30 },
-                new User() { Id=2,LastName="Kryzhovets", FirstName="Nata", Age=26 },
-                new User() { Id=3,LastName="Siam", FirstName="Pumka", Age=5 },
+                new User() { Id=1,LastName="Bastiuchenko", FirstName="Anton", BirthDate=new DateTime(1986,5,17) },
+                new User() { Id=2,LastName="Kryzhovets", FirstName="Nata", BirthDate=new DateTime(1990,1,8) },
+                new User() { Id=3,LastName="Siam", FirstName="Pumka", BirthDate=new DateTime(2011,6,20) },
             };
 
             return Json(userCollection, JsonRequestBehavior.AllowGet);

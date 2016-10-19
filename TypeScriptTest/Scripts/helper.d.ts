@@ -1,0 +1,1 @@
+﻿declare function date2JS(rawDate:string): Date

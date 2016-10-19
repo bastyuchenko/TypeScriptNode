@@ -6,7 +6,7 @@ var userManager = (function () {
         var _this = this;
         $.getJSON('/Home/GetUsers', function (data) {
             _this.users = data;
-            alert('data is loaded');
+            console.log('data is loaded');
         });
     };
     userManager.prototype.displayUsers = function () {
@@ -16,7 +16,7 @@ var userManager = (function () {
                 '<td>' + this.users[i].Id + '</td>' +
                 '<td>' + this.users[i].FirstName + '</td>' +
                 '<td>' + this.users[i].LastName + '</td>' +
-                '<td>' + this.users[i].Age + '</td>' +
+                '<td>' + date2JS(this.users[i].BirthDate) + '</td>' +
                 '</tr>';
             table += tableRow;
         }

@@ -5,7 +5,7 @@
         $.getJSON('/Home/GetUsers',
             (data) => {
                 this.users = data;
-                alert('data is loaded');
+                console.log('data is loaded');
 
             });
     }
@@ -19,7 +19,7 @@
                 '<td>' + this.users[i].Id + '</td>' +
                 '<td>' + this.users[i].FirstName + '</td>' +
                 '<td>' + this.users[i].LastName + '</td>' +
-                '<td>' + this.users[i].Age + '</td>' +
+                '<td>' + date2JS(this.users[i].BirthDate) + '</td>' +
                 '</tr>';
             table += tableRow;
         }

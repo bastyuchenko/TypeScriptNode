@@ -135,6 +135,7 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\helper.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Web.config" />
@@ -161,6 +162,7 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\app.ts" />
+    <TypeScriptCompile Include="Scripts\helper.d.ts" />
     <TypeScriptCompile Include="Scripts\manager\groupManager.ts" />
     <TypeScriptCompile Include="Scripts\manager\userManager.ts" />
     <TypeScriptCompile Include="Scripts\model\group.ts" />
