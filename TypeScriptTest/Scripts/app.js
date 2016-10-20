@@ -4,6 +4,7 @@ window.onload = function () {
     var groupMgr = new groupManager();
     $('#loadBtn').click(function () { userMgr.load(); });
     $("#displayBtn").click(function () { userMgr.displayUsers(); });
+    $("#addUser").click(function () { userMgr.addUser(); });
     $('#loadGrBtn').click(function () { groupMgr.loadGroups(); });
     $("#displayGrBtn").click(function () { groupMgr.displayGroup(); });
 };

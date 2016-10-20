@@ -5,11 +5,9 @@ using System.Web;
 
 namespace TypeScriptTest.Models
 {
-    public class User
+    public class GroupModel
     {
         public int Id { get; set; }
-        public DateTime BirthDate { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        public string Name { get; set; }
     }
 }

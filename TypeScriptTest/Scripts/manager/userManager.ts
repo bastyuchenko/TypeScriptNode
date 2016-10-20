@@ -10,7 +10,7 @@
             });
     }
 
-    displayUsers(): void {
+    displayUsers = (): void => {
 
         var table = '<table class="table">'
         for (var i = 0; i < this.users.length; i++) {
@@ -25,6 +25,27 @@
         }
         table += '</table>';
         $('#content').html(table);
+    }
+
+    addUser(): boolean {
+        let firstname: string = $('#FirstName').val();
+        let lastname: string = $('#LastName').val();
+        let user = new User()
+        user.FirstName = firstname;
+        user.LastName = lastname;
+        return this.addUserInternal(user);
+    }
+
+    addUserInternal(user: User): boolean {
+        $.ajax({
+            method: "POST",
+            url: '/Home/PostUser',
+            data: user
+        }).done(function (msg) {
+            alert("Data Saved: " + msg);
+        });
+
+        return true;
     }
 
 }

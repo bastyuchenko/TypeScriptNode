@@ -16,25 +16,44 @@ namespace TypeScriptTest.Controllers
 
         public JsonResult GetUsers()
         {
-            List<User> userCollection = new List<User>()
+            List<UserModel> userCollection = null;
+            using (var context = new TypeScriptDBEntities())
             {
-                new User() { Id=1,LastName="Bastiuchenko", FirstName="Anton", BirthDate=new DateTime(1986,5,17) },
-                new User() { Id=2,LastName="Kryzhovets", FirstName="Nata", BirthDate=new DateTime(1990,1,8) },
-                new User() { Id=3,LastName="Siam", FirstName="Pumka", BirthDate=new DateTime(2011,6,20) },
-            };
-
+                userCollection = (from g in context.Users
+                                  select new UserModel()
+                                  {
+                                      Id = g.ID,
+                                      BirthDate = g.BirthDate,
+                                      FirstName = g.FirstName,
+                                      LastName = g.LastName
+                                  }).ToList();
+            }
             return Json(userCollection, JsonRequestBehavior.AllowGet);
+        }
+
+        public bool PostUser(User user)
+        {
+            using (var context = new TypeScriptDBEntities())
+            {
+                context.Users.Add(user);
+                context.SaveChanges();
+            }
+            return true;
         }
 
         public JsonResult GetGroup()
         {
-            List<Group> userCollection = new List<Group>()
+            List<GroupModel> groupCollection = null;
+            using (var context = new TypeScriptDBEntities())
             {
-                new Group() { Id=1,Name="Vossoedinenia" },
-                new Group() { Id=2,Name="SholomAleihem" },
-            };
-
-            return Json(userCollection, JsonRequestBehavior.AllowGet);
+                groupCollection = (from g in context.Groups
+                                   select new GroupModel()
+                                   {
+                                       Id = g.ID,
+                                       Name = g.Title
+                                   }).ToList();
+            }
+            return Json(groupCollection, JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult About()

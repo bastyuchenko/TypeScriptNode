@@ -6,6 +6,7 @@ window.onload = () => {
 
     $('#loadBtn').click(() => { userMgr.load(); });
     $("#displayBtn").click(() => { userMgr.displayUsers(); });
+    $("#addUser").click(() => { userMgr.addUser(); });
 
     $('#loadGrBtn').click(() => { groupMgr.loadGroups(); });
     $("#displayGrBtn").click(() => { groupMgr.displayGroup(); });
