@@ -19,9 +19,11 @@ var userManager = (function () {
     }
     userManager.prototype.load = function () {
         var _this = this;
-        $.getJSON('/Home/GetUsers', function (data) {
-            _this.users = data;
-            console.log('data is loaded');
+        $.getJSON('/api/UserActions/GetUsers', function (data) {
+            if (data.Success) {
+                _this.users = data.Result;
+                console.log('data is loaded');
+            }
         });
     };
     userManager.prototype.addUser = function () {
@@ -30,16 +32,16 @@ var userManager = (function () {
         var user = new User();
         user.FirstName = firstname;
         user.LastName = lastname;
-        return this.addUserInternal(user);
+        return this.addUserInternal(user, function (msg) {
+            alert("Data Saved: " + msg.Message);
+        });
     };
-    userManager.prototype.addUserInternal = function (user) {
+    userManager.prototype.addUserInternal = function (user, callback) {
         $.ajax({
             method: "POST",
-            url: '/Home/PostUser',
+            url: '/api/UserActions/PostUser',
             data: user
-        }).done(function (msg) {
-            alert("Data Saved: " + msg);
-        });
+        }).done(callback);
         return true;
     };
     return userManager;

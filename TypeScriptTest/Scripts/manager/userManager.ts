@@ -2,11 +2,12 @@
     private users: Array<User> = new Array<User>();
 
     load(): void {
-        $.getJSON('/Home/GetUsers',
-            (data) => {
-                this.users = data;
-                console.log('data is loaded');
-
+        $.getJSON('/api/UserActions/GetUsers',
+            (data: OperationResultWithType<Array<User>>) => {
+                if (data.Success) {
+                    this.users = data.Result;
+                    console.log('data is loaded');
+                }
             });
     }
 
@@ -33,17 +34,17 @@
         let user = new User()
         user.FirstName = firstname;
         user.LastName = lastname;
-        return this.addUserInternal(user);
+        return this.addUserInternal(user, (msg) => {
+            alert("Data Saved: " + msg.Message);
+        });
     }
 
-    addUserInternal(user: User): boolean {
+    addUserInternal(user: User, callback: (data: OperationResult) => void): boolean {
         $.ajax({
             method: "POST",
-            url: '/Home/PostUser',
+            url: '/api/UserActions/PostUser',
             data: user
-        }).done(function (msg) {
-            alert("Data Saved: " + msg);
-        });
+        }).done(callback);
 
         return true;
     }

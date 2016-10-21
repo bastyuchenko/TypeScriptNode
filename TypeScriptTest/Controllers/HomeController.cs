@@ -14,33 +14,6 @@ namespace TypeScriptTest.Controllers
             return View();
         }
 
-        public JsonResult GetUsers()
-        {
-            List<UserModel> userCollection = null;
-            using (var context = new TypeScriptDBEntities())
-            {
-                userCollection = (from g in context.Users
-                                  select new UserModel()
-                                  {
-                                      Id = g.ID,
-                                      BirthDate = g.BirthDate,
-                                      FirstName = g.FirstName,
-                                      LastName = g.LastName
-                                  }).ToList();
-            }
-            return Json(userCollection, JsonRequestBehavior.AllowGet);
-        }
-
-        public bool PostUser(User user)
-        {
-            using (var context = new TypeScriptDBEntities())
-            {
-                context.Users.Add(user);
-                context.SaveChanges();
-            }
-            return true;
-        }
-
         public JsonResult GetGroup()
         {
             List<GroupModel> groupCollection = null;
