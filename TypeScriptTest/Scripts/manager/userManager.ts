@@ -1,4 +1,4 @@
-﻿class userManager {
+﻿export class userManager {
     private users: Array<User> = new Array<User>();
 
     load(): void {

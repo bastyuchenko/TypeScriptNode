@@ -1,8 +1,9 @@
 ﻿/// <reference path="typings/jquery/jquery.d.ts" />
 
 window.onload = () => {
+    import { userManager } from "./manager/userManager";
     let userMgr: userManager = new userManager();
-    let groupMgr: groupManager = new groupManager();
+    let groupMgr: GroupNS.groupManager = new GroupNS.groupManager();
 
     $('#loadBtn').click(() => { userMgr.load(); });
     $("#displayBtn").click(() => { userMgr.displayUsers(); });
