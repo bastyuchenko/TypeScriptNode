@@ -1,6 +1,4 @@
-﻿namespace GroupNS {
-    export class Group {
-        Id: number;
-        Name: string;
-    }
+﻿class Group {
+    Id: number;
+    Name: string;
 }

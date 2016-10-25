@@ -40,9 +40,10 @@
     <TypeScriptJSXEmit>None</TypeScriptJSXEmit>
     <TypeScriptCompileOnSaveEnabled>True</TypeScriptCompileOnSaveEnabled>
     <TypeScriptNoImplicitAny>False</TypeScriptNoImplicitAny>
-    <TypeScriptModuleKind>CommonJS</TypeScriptModuleKind>
+    <TypeScriptModuleKind>AMD</TypeScriptModuleKind>
     <TypeScriptRemoveComments>False</TypeScriptRemoveComments>
-    <TypeScriptOutFile />
+    <TypeScriptOutFile>
+    </TypeScriptOutFile>
     <TypeScriptOutDir />
     <TypeScriptGeneratesDeclarations>False</TypeScriptGeneratesDeclarations>
     <TypeScriptNoEmitOnError>True</TypeScriptNoEmitOnError>
@@ -197,6 +198,7 @@
     <Content Include="Scripts\helper.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\require.js" />
     <Content Include="TypeScriptDBModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>TypeScriptDBModel.Context.cs</LastGenOutput>

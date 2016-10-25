@@ -1,14 +1,12 @@
-﻿namespace GroupNS {
-    export class groupManager {
-        private groupCollection: Array<Group> = new Array<Group>();
+﻿export class groupManager {
+    private groupCollection: Array<Group> = new Array<Group>();
 
-        loadGroups(): void {
-            $.getJSON("/Home/GetGroup")
-                .then((data) => { this.groupCollection = data });
-        }
+    loadGroups(): void {
+        $.getJSON("/Home/GetGroup")
+            .then((data) => { this.groupCollection = data });
+    }
 
-        displayGroup(): void {
+    displayGroup(): void {
 
-        }
     }
 }

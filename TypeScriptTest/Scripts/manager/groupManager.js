@@ -1,5 +1,5 @@
-var GroupNS;
-(function (GroupNS) {
+define(["require", "exports"], function (require, exports) {
+    "use strict";
     var groupManager = (function () {
         function groupManager() {
             this.groupCollection = new Array();
@@ -13,6 +13,6 @@ var GroupNS;
         };
         return groupManager;
     }());
-    GroupNS.groupManager = groupManager;
-})(GroupNS || (GroupNS = {}));
+    exports.groupManager = groupManager;
+});
 //# sourceMappingURL=groupManager.js.map
