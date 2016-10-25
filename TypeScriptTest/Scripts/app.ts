@@ -1,8 +1,9 @@
 ﻿/// <reference path="typings/jquery/jquery.d.ts" />
 
+import UserManager = require("./manager/userManager");
+
 window.onload = () => {
-    import { userManager } from "./manager/userManager";
-    let userMgr: userManager = new userManager();
+    let userMgr: UserManager.userManager = new UserManager.userManager();
     let groupMgr: GroupNS.groupManager = new GroupNS.groupManager();
 
     $('#loadBtn').click(() => { userMgr.load(); });
