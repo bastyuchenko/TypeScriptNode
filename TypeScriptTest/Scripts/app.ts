@@ -3,14 +3,12 @@
 import UserManager = require("./manager/userManager");
 import GroupManager = require("./manager/groupManager");
 
-window.onload = () => {
-    let userMgr: UserManager.userManager = new UserManager.userManager();
-    let groupMgr: GroupManager.groupManager = new GroupManager.groupManager();
+let userMgr: UserManager.userManager = new UserManager.userManager();
+let groupMgr: GroupManager.groupManager = new GroupManager.groupManager();
 
-    $('#loadBtn').click(() => { userMgr.load(); });
-    $("#displayBtn").click(() => { userMgr.displayUsers(); });
-    $("#addUser").click(() => { userMgr.addUser(); });
+$('#loadBtn').click(() => { userMgr.load(); });
+$("#displayBtn").click(() => { userMgr.displayUsers(); });
+$("#addUser").click(() => { userMgr.addUser(); });
 
-    $('#loadGrBtn').click(() => { groupMgr.loadGroups(); });
-    $("#displayGrBtn").click(() => { groupMgr.displayGroup(); });
-}
+$('#loadGrBtn').click(() => { groupMgr.loadGroups(); });
+$("#displayGrBtn").click(() => { groupMgr.displayGroup(); });
